@@ -437,7 +437,7 @@ function sendQuickPrompt(promptText) {
   }
 }
 
-function handleChatbotSend() {
+async function handleChatbotSend() {
   const inputField = document.getElementById('chatbot-input-field');
   const messagesList = document.getElementById('chatbot-messages-list');
   if (!inputField || !messagesList) return;
@@ -461,24 +461,50 @@ function handleChatbotSend() {
   messagesList.appendChild(typingDiv);
   scrollChatToBottom();
 
-  // Process Query & Respond with Delay
-  setTimeout(() => {
-    // Remove Typing Indicator
-    if (typingDiv.parentNode) {
-      typingDiv.parentNode.removeChild(typingDiv);
-    }
+  let botResponse = '';
 
-    const botResponse = matchQueryToKnowledgeBase(userQuery);
-    const botMsgDiv = document.createElement('div');
-    botMsgDiv.className = 'chat-msg bot-msg';
-    botMsgDiv.innerHTML = `<div class="chat-msg-bubble">${botResponse}</div>`;
-    messagesList.appendChild(botMsgDiv);
-    scrollChatToBottom();
-
-    if (window.lucide) {
-      lucide.createIcons();
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userQuery })
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.reply) {
+        botResponse = formatGeminiResponse(data.reply);
+      }
     }
-  }, 650);
+  } catch (err) {
+    console.log('API chat endpoint unavailable, using local knowledge base fallback:', err);
+  }
+
+  // Fallback to local Knowledge Base if API response not received
+  if (!botResponse) {
+    botResponse = matchQueryToKnowledgeBase(userQuery);
+  }
+
+  // Remove Typing Indicator
+  if (typingDiv.parentNode) {
+    typingDiv.parentNode.removeChild(typingDiv);
+  }
+
+  const botMsgDiv = document.createElement('div');
+  botMsgDiv.className = 'chat-msg bot-msg';
+  botMsgDiv.innerHTML = `<div class="chat-msg-bubble">${botResponse}</div>`;
+  messagesList.appendChild(botMsgDiv);
+  scrollChatToBottom();
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+}
+
+function formatGeminiResponse(text) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
+    .replace(/\n/g, '<br/>');
 }
 
 function matchQueryToKnowledgeBase(query) {
