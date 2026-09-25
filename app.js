@@ -305,6 +305,33 @@ document.addEventListener('keydown', (e) => {
    ========================================================================== */
 
 const SHREYA_KNOWLEDGE_BASE = [
+  // --- GRANULAR TARGETED CONTACT & SPECIFIC DETAILS ---
+  {
+    keywords: ["gmail", "email", "mail id", "gmail id", "email id", "email address", "mail address", "contact email"],
+    response: "Shreya Ghodmare's email address is <a href='mailto:ghodmareshreya@gmail.com'>ghodmareshreya@gmail.com</a>."
+  },
+  {
+    keywords: ["phone", "phone number", "mobile", "contact number", "call", "whatsapp", "cell", "phone id", "mobile number"],
+    response: "Shreya Ghodmare's contact phone number is <strong>+91 9545853876</strong>."
+  },
+  {
+    keywords: ["location", "city", "where is she", "where does she live", "based", "nagpur", "address", "state"],
+    response: "Shreya Ghodmare is based in <strong>Nagpur, Maharashtra, India</strong>."
+  },
+  {
+    keywords: ["linkedin", "linkedin profile", "linkedin id", "linkedin link", "social"],
+    response: "You can connect with Shreya on LinkedIn here: <a href='https://www.linkedin.com/in/shreya-ghodmare-216417308/' target='_blank'>Shreya's LinkedIn Profile</a>."
+  },
+  {
+    keywords: ["github", "github profile", "github id", "github link", "repos", "repositories", "code"],
+    response: "You can view Shreya's open-source projects and code repositories here: <a href='https://github.com/Shreya10110' target='_blank'>Shreya's GitHub Profile</a>."
+  },
+  {
+    keywords: ["cgpa", "gpa", "marks", "percentage", "academic score", "grade", "score"],
+    response: "Shreya holds a CGPA of <strong>8.07</strong> in her B.Tech in Information Technology at St. Vincent Pallotti College of Engineering and Technology, Nagpur."
+  },
+
+  // --- GENERAL PROFILE CATEGORIES ---
   {
     keywords: ["name", "who is shreya", "who are you", "tell me about shreya", "bio", "overview", "introduction", "about shreya", "background", "summary"],
     response: "<strong>Shreya Ghodmare</strong> is an AI/ML-focused final-year B.Tech IT student at St. Vincent Pallotti College of Engineering and Technology, Nagpur (graduating June 2027, CGPA: 8.07). She is a published AI researcher with 3 paper publications and winner of 5× national-level hackathons and competitions!"
@@ -314,15 +341,15 @@ const SHREYA_KNOWLEDGE_BASE = [
     response: "Here are Shreya's core technical skills:<br/>• <strong>Languages:</strong> Python, SQL<br/>• <strong>AI/ML & GenAI:</strong> Machine Learning, Deep Learning, Computer Vision, RAG, Explainable AI (Grad-CAM), LangChain, FAISS, Gemini, FLAN-T5, MiniLM<br/>• <strong>Backend & Databases:</strong> FastAPI, REST APIs, JWT Auth, PostgreSQL, MongoDB<br/>• <strong>Libraries & Tools:</strong> TensorFlow, NumPy, Pandas, Scikit-learn, OpenCV, Git, VS Code."
   },
   {
-    keywords: ["education", "college", "degree", "b.tech", "cgpa", "study", "university", "pallotti", "gpa", "marks", "grade", "school"],
-    response: "Shreya is pursuing her <strong>B.Tech in Information Technology</strong> at <strong>St. Vincent Pallotti College of Engineering and Technology, Nagpur</strong> (Aug 2023 – June 2027) with an impressive CGPA of <strong>8.07</strong>."
+    keywords: ["education", "college", "degree", "b.tech", "study", "university", "pallotti", "school", "graduation"],
+    response: "Shreya is pursuing her <strong>B.Tech in Information Technology</strong> at <strong>St. Vincent Pallotti College of Engineering and Technology, Nagpur</strong> (Aug 2023 – June 2027) with a CGPA of <strong>8.07</strong>."
   },
   {
     keywords: ["experience", "internship", "intern", "leading india", "work", "job", "mri", "tumor", "brain tumor", "grad-cam", "xai", "noida"],
     response: "Shreya worked as an <strong>ML Engineer Intern</strong> at <strong>Leading India Pvt. Ltd. (Noida)</strong> from Jan 2026 to Apr 2026.<br/>Key accomplishments:<br/>• Developed an attention-weighted ensemble CNN (MobileNetV2, EfficientNetB0, Custom CNN) for brain tumor classification, achieving <strong>97–98% validation accuracy</strong>.<br/>• Implemented Grad-CAM with OpenCV for Explainable AI (XAI) to visualize tumor-relevant MRI regions.<br/>• Built an end-to-end Computer Vision pipeline with TensorFlow/Keras, OpenCV, Flask & React."
   },
   {
-    keywords: ["project", "projects", "work", "portfolio projects", "built", "systems"],
+    keywords: ["project", "projects", "portfolio projects", "built", "systems"],
     response: "Shreya has built 3 flagship end-to-end systems:<br/>1. 🌾 <strong>KisanBandhu:</strong> RAG-based Agricultural Advisory Platform (<a href='https://kisan-bandhu-4wlq.onrender.com/' target='_blank'>Live Demo</a>).<br/>2. 🏥 <strong>CityCare:</strong> Role-based Hospital Management System with Gemini RAG (<a href='https://citycare-frontend.onrender.com/login' target='_blank'>Live Demo</a>).<br/>3. 📦 <strong>Multi-Warehouse Management:</strong> Fulfillment & Inventory System (<a href='https://warehouse-frontend-v2cu.onrender.com/login' target='_blank'>Live Demo</a>)."
   },
   {
@@ -354,12 +381,12 @@ const SHREYA_KNOWLEDGE_BASE = [
     response: "👑 Positions of Responsibility & Leadership:<br/>• <strong>Joint Secretary</strong> — Computer Society of India (CSI) Student Chapter at SVPECT.<br/>• <strong>Registration Head</strong> — CII 2025 Conference.<br/>• <strong>Promotion Lead</strong> — TECHNEX 2025."
   },
   {
-    keywords: ["contact", "email", "phone", "reach", "hire", "linkedin", "github", "location", "address", "number", "mail", "connect", "social"],
-    response: "📫 You can reach Shreya Ghodmare directly via:<br/>• <strong>Email:</strong> <a href='mailto:ghodmareshreya@gmail.com'>ghodmareshreya@gmail.com</a><br/>• <strong>Phone:</strong> +91 9545853876<br/>• <strong>Location:</strong> Nagpur, Maharashtra, India<br/>• <strong>LinkedIn:</strong> <a href='https://www.linkedin.com/in/shreya-ghodmare-216417308/' target='_blank'>Shreya's LinkedIn</a><br/>• <strong>GitHub:</strong> <a href='https://github.com/Shreya10110' target='_blank'>Shreya's GitHub</a>"
+    keywords: ["contact", "reach", "hire", "how to contact", "contact details"],
+    response: "📫 You can reach Shreya Ghodmare via:<br/>• <strong>Email:</strong> <a href='mailto:ghodmareshreya@gmail.com'>ghodmareshreya@gmail.com</a><br/>• <strong>Phone:</strong> +91 9545853876<br/>• <strong>Location:</strong> Nagpur, Maharashtra, India<br/>• <strong>LinkedIn:</strong> <a href='https://www.linkedin.com/in/shreya-ghodmare-216417308/' target='_blank'>LinkedIn Profile</a><br/>• <strong>GitHub:</strong> <a href='https://github.com/Shreya10110' target='_blank'>GitHub Profile</a>"
   }
 ];
 
-const OUT_OF_SCOPE_RESPONSE = "I am specifically trained as <strong>Shreya Ghodmare's AI Portfolio Assistant</strong>. I am only eligible to answer questions regarding Shreya's professional profile, resume, technical skills, AI/ML projects (KisanBandhu, CityCare, Warehouse System), research publications, and contact info.<br/><br/>I am unable to assist with general or out-of-scope topics, but I would be delighted to share details about Shreya's work, experience, or achievements!";
+const OUT_OF_SCOPE_RESPONSE = "I am specifically trained as <strong>Shreya Ghodmare's Executive AI Assistant</strong>. I am configured to provide information strictly regarding Shreya's professional background, resume, technical skills, engineering projects, research publications, and credentials.<br/><br/>I am unable to assist with out-of-scope topics, but I am at your service to answer any specific questions about Shreya's work or qualifications.";
 
 function toggleChatbot() {
   const win = document.getElementById('shreya-chatbot-window');
@@ -385,11 +412,11 @@ function resetChatbotLog() {
     messagesList.innerHTML = `
       <div class="chat-msg bot-msg">
         <div class="chat-msg-bubble">
-          Hello! 👋 I am <strong>Shreya's AI Assistant</strong>.
+          Welcome. I am <strong>Shreya Ghodmare's Executive AI Assistant</strong>.
           <br/><br/>
-          I can answer questions about Shreya Ghodmare's background, technical skills, AI/ML projects (KisanBandhu, CityCare, Warehouse System), research publications, and contact info.
+          I am configured to provide precise information regarding Shreya's engineering background, AI/ML research, technical projects, and credentials.
           <br/><br/>
-          How can I help you today?
+          How may I assist you today?
         </div>
       </div>
     `;
@@ -463,7 +490,8 @@ function matchQueryToKnowledgeBase(query) {
     let score = 0;
     entry.keywords.forEach(kw => {
       if (normalized.includes(kw)) {
-        score += kw.length; // prioritize longer, more specific matches
+        // Boost granular exact keyword matches so targeted answers override broad categories
+        score += kw.length * 2;
       }
     });
     if (score > maxScore) {
@@ -491,4 +519,5 @@ function scrollChatToBottom() {
     messagesList.scrollTop = messagesList.scrollHeight;
   }
 }
+
 
