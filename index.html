@@ -805,6 +805,63 @@
     <img id="lightbox-img" class="lightbox-content" src="" alt="Enlarged Screenshot" />
   </div>
 
-  <script src="app.js?v=20260924_v18"></script>
+  <!-- SHREYA'S AI PORTFOLIO ASSISTANT CHATBOT -->
+  <div id="shreya-chatbot-launcher" class="chatbot-launcher" onclick="toggleChatbot()">
+    <div class="chatbot-launcher-icon">
+      <i data-lucide="bot"></i>
+    </div>
+    <span class="chatbot-launcher-ping"></span>
+    <div class="chatbot-launcher-tooltip">Ask Shreya's AI Assistant</div>
+  </div>
+
+  <div id="shreya-chatbot-window" class="chatbot-window">
+    <div class="chatbot-header">
+      <div class="chatbot-avatar-container">
+        <div class="chatbot-avatar">
+          <i data-lucide="bot"></i>
+        </div>
+        <div class="chatbot-status-dot"></div>
+      </div>
+      <div class="chatbot-header-info">
+        <h4 class="chatbot-title">Shreya's AI Assistant</h4>
+        <span class="chatbot-subtitle">Personal Portfolio Assistant</span>
+      </div>
+      <div class="chatbot-header-actions">
+        <button class="chatbot-action-btn" onclick="resetChatbotLog()" title="Reset Conversation"><i data-lucide="rotate-ccw"></i></button>
+        <button class="chatbot-action-btn" onclick="toggleChatbot()" title="Close"><i data-lucide="x"></i></button>
+      </div>
+    </div>
+
+    <div class="chatbot-messages" id="chatbot-messages-list">
+      <!-- Bot Greeting Message -->
+      <div class="chat-msg bot-msg">
+        <div class="chat-msg-bubble">
+          Hello! 👋 I am <strong>Shreya's AI Assistant</strong>.
+          <br/><br/>
+          I can answer questions about Shreya Ghodmare's background, technical skills, AI/ML projects (KisanBandhu, CityCare, Warehouse System), research publications, and contact info.
+          <br/><br/>
+          How can I help you today?
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Suggestion Chips -->
+    <div class="chatbot-suggestions" id="chatbot-suggestions-container">
+      <button class="chip-btn" onclick="sendQuickPrompt('Tell me about Shreya\'s skills & education')">🎓 Skills &amp; Education</button>
+      <button class="chip-btn" onclick="sendQuickPrompt('Tell me about KisanBandhu project')">🌾 KisanBandhu Project</button>
+      <button class="chip-btn" onclick="sendQuickPrompt('Tell me about CityCare project')">🏥 CityCare Project</button>
+      <button class="chip-btn" onclick="sendQuickPrompt('What research papers has Shreya published?')">🔬 Research Papers</button>
+      <button class="chip-btn" onclick="sendQuickPrompt('What are her top hackathon achievements?')">🏆 Achievements</button>
+      <button class="chip-btn" onclick="sendQuickPrompt('How can I contact Shreya?')">✉️ Contact Info</button>
+    </div>
+
+    <!-- Input Bar -->
+    <div class="chatbot-input-bar">
+      <input type="text" id="chatbot-input-field" class="chatbot-input-text" placeholder="Ask about Shreya's resume, projects, or research..." onkeydown="handleChatbotKeyDown(event)" />
+      <button class="chatbot-send-btn" onclick="handleChatbotSend()"><i data-lucide="send"></i></button>
+    </div>
+  </div>
+
+  <script src="app.js?v=20260925_v1"></script>
 </body>
 </html>

@@ -296,5 +296,199 @@ document.addEventListener('keydown', (e) => {
     closeContactModal();
     closeDemoModal();
     closeLightbox();
+    closeChatbotWindow();
   }
 });
+
+/* ==========================================================================
+   SHREYA'S AI PORTFOLIO ASSISTANT CHATBOT ENGINE
+   ========================================================================== */
+
+const SHREYA_KNOWLEDGE_BASE = [
+  {
+    keywords: ["name", "who is shreya", "who are you", "tell me about shreya", "bio", "overview", "introduction", "about shreya", "background", "summary"],
+    response: "<strong>Shreya Ghodmare</strong> is an AI/ML-focused final-year B.Tech IT student at St. Vincent Pallotti College of Engineering and Technology, Nagpur (graduating June 2027, CGPA: 8.07). She is a published AI researcher with 3 paper publications and winner of 5× national-level hackathons and competitions!"
+  },
+  {
+    keywords: ["skill", "skills", "technology", "tech stack", "languages", "python", "sql", "frameworks", "tools", "ml", "ai", "genai", "deep learning", "computer vision", "rag", "fastapi", "react", "tensorflow", "postgres", "mongodb"],
+    response: "Here are Shreya's core technical skills:<br/>• <strong>Languages:</strong> Python, SQL<br/>• <strong>AI/ML & GenAI:</strong> Machine Learning, Deep Learning, Computer Vision, RAG, Explainable AI (Grad-CAM), LangChain, FAISS, Gemini, FLAN-T5, MiniLM<br/>• <strong>Backend & Databases:</strong> FastAPI, REST APIs, JWT Auth, PostgreSQL, MongoDB<br/>• <strong>Libraries & Tools:</strong> TensorFlow, NumPy, Pandas, Scikit-learn, OpenCV, Git, VS Code."
+  },
+  {
+    keywords: ["education", "college", "degree", "b.tech", "cgpa", "study", "university", "pallotti", "gpa", "marks", "grade", "school"],
+    response: "Shreya is pursuing her <strong>B.Tech in Information Technology</strong> at <strong>St. Vincent Pallotti College of Engineering and Technology, Nagpur</strong> (Aug 2023 – June 2027) with an impressive CGPA of <strong>8.07</strong>."
+  },
+  {
+    keywords: ["experience", "internship", "intern", "leading india", "work", "job", "mri", "tumor", "brain tumor", "grad-cam", "xai", "noida"],
+    response: "Shreya worked as an <strong>ML Engineer Intern</strong> at <strong>Leading India Pvt. Ltd. (Noida)</strong> from Jan 2026 to Apr 2026.<br/>Key accomplishments:<br/>• Developed an attention-weighted ensemble CNN (MobileNetV2, EfficientNetB0, Custom CNN) for brain tumor classification, achieving <strong>97–98% validation accuracy</strong>.<br/>• Implemented Grad-CAM with OpenCV for Explainable AI (XAI) to visualize tumor-relevant MRI regions.<br/>• Built an end-to-end Computer Vision pipeline with TensorFlow/Keras, OpenCV, Flask & React."
+  },
+  {
+    keywords: ["project", "projects", "work", "portfolio projects", "built", "systems"],
+    response: "Shreya has built 3 flagship end-to-end systems:<br/>1. 🌾 <strong>KisanBandhu:</strong> RAG-based Agricultural Advisory Platform (<a href='https://kisan-bandhu-4wlq.onrender.com/' target='_blank'>Live Demo</a>).<br/>2. 🏥 <strong>CityCare:</strong> Role-based Hospital Management System with Gemini RAG (<a href='https://citycare-frontend.onrender.com/login' target='_blank'>Live Demo</a>).<br/>3. 📦 <strong>Multi-Warehouse Management:</strong> Fulfillment & Inventory System (<a href='https://warehouse-frontend-v2cu.onrender.com/login' target='_blank'>Live Demo</a>)."
+  },
+  {
+    keywords: ["kisanbandhu", "kisan bandhu", "kisan", "agriculture", "farmer", "rag agricultural", "contract farming", "farming"],
+    response: "🌾 <strong>KisanBandhu</strong> is an end-to-end RAG (Retrieval-Augmented Generation) agricultural advisory platform (Jan–Feb 2026).<br/>• Uses PyPDF ingestion, LangChain chunking, FAISS vector database + MiniLM-L6-v2 embeddings for semantic retrieval.<br/>• Integrated with FLAN-T5 LLM to deliver accurate, farmer-friendly agricultural guidance and transparent contract farming.<br/>👉 <a href='https://kisan-bandhu-4wlq.onrender.com/' target='_blank'>Experience KisanBandhu Live</a>"
+  },
+  {
+    keywords: ["citycare", "city care", "hospital", "patient", "prescription", "doctor", "health", "healthcare"],
+    response: "🏥 <strong>CityCare</strong> is an AI-enabled Hospital Management System built in August 2026.<br/>• Features role-based access for patients and doctors with digital prescription workflows and appointment scheduling.<br/>• Integrated a Gemini-powered RAG assistant for patient prescription queries and Cloudinary for PDF prescription storage.<br/>👉 <a href='https://citycare-frontend.onrender.com/login' target='_blank'>Experience CityCare Live</a>"
+  },
+  {
+    keywords: ["warehouse", "inventory", "logistics", "fulfillment", "shipping", "shift control"],
+    response: "📦 <strong>Multi-Warehouse Management & Inventory Fulfillment System</strong> is a full-stack cloud logistics system.<br/>• Built with React, FastAPI, PostgreSQL, Supabase, and JWT authentication.<br/>• Features shift control centres, inbound activity logs, manager approval queues, outbound picking/packing, and automated shipping label generation.<br/>👉 <a href='https://warehouse-frontend-v2cu.onrender.com/login' target='_blank'>Experience Warehouse System Live</a>"
+  },
+  {
+    keywords: ["research", "paper", "publication", "publications", "inspiro", "pose", "blockchain", "scopus", "indjcst", "conference", "journal", "published"],
+    response: "Shreya is a published AI researcher with 3 papers:<br/>1. 📄 <em>AI-Based Pose Estimation System for Exercise Error Detection and Telerehabilitation Support in Resource-Constrained Settings</em> (ARET Conference, Scopus-indexed).<br/>2. 📄 <em>INSPIRO: An AI-Driven Institution Auditor</em> (INDJCST, DOI: 10.59256/indjcst.20250401004).<br/>3. 📄 <em>Blockchain Enabled Platform for Transparent Contract Farming in India</em> (INDJCST, DOI: 10.59256/indjcst.20260501043)."
+  },
+  {
+    keywords: ["achievement", "achievements", "hackathon", "award", "awards", "winner", "contest", "competition", "runner-up", "sb jain", "nit", "kdk", "rising india", "trophy"],
+    response: "🏆 Shreya has secured top positions in <strong>5× National-Level Competitions</strong>:<br/>• 🥇 <strong>1st Runner-Up</strong> — Rising India Hackathon at NIT (competing among 220 teams).<br/>• 🥇 <strong>1st Prize Winner</strong> — SB Jain Ideathon & Project Competition.<br/>• 🥈 <strong>2nd Prize</strong> — KDK Hackathon & Nagpur Govt Project Competition."
+  },
+  {
+    keywords: ["certificate", "certifications", "bootcamp", "python diploma", "fde", "courses"],
+    response: "📜 Shreya's certifications include:<br/>• Python Diploma Certificate<br/>• FDE BOOTCAMP Certificate<br/>• Winner Certificates for National Hackathons, Idea Pitching, and Conference presentations."
+  },
+  {
+    keywords: ["leadership", "csi", "cii", "technex", "joint secretary", "position", "responsibility", "head", "lead", "community"],
+    response: "👑 Positions of Responsibility & Leadership:<br/>• <strong>Joint Secretary</strong> — Computer Society of India (CSI) Student Chapter at SVPECT.<br/>• <strong>Registration Head</strong> — CII 2025 Conference.<br/>• <strong>Promotion Lead</strong> — TECHNEX 2025."
+  },
+  {
+    keywords: ["contact", "email", "phone", "reach", "hire", "linkedin", "github", "location", "address", "number", "mail", "connect", "social"],
+    response: "📫 You can reach Shreya Ghodmare directly via:<br/>• <strong>Email:</strong> <a href='mailto:ghodmareshreya@gmail.com'>ghodmareshreya@gmail.com</a><br/>• <strong>Phone:</strong> +91 9545853876<br/>• <strong>Location:</strong> Nagpur, Maharashtra, India<br/>• <strong>LinkedIn:</strong> <a href='https://www.linkedin.com/in/shreya-ghodmare-216417308/' target='_blank'>Shreya's LinkedIn</a><br/>• <strong>GitHub:</strong> <a href='https://github.com/Shreya10110' target='_blank'>Shreya's GitHub</a>"
+  }
+];
+
+const OUT_OF_SCOPE_RESPONSE = "I am specifically trained as <strong>Shreya Ghodmare's AI Portfolio Assistant</strong>. I am only eligible to answer questions regarding Shreya's professional profile, resume, technical skills, AI/ML projects (KisanBandhu, CityCare, Warehouse System), research publications, and contact info.<br/><br/>I am unable to assist with general or out-of-scope topics, but I would be delighted to share details about Shreya's work, experience, or achievements!";
+
+function toggleChatbot() {
+  const win = document.getElementById('shreya-chatbot-window');
+  if (win) {
+    win.classList.toggle('active');
+    if (win.classList.contains('active')) {
+      const input = document.getElementById('chatbot-input-field');
+      if (input) input.focus();
+    }
+  }
+}
+
+function closeChatbotWindow() {
+  const win = document.getElementById('shreya-chatbot-window');
+  if (win) {
+    win.classList.remove('active');
+  }
+}
+
+function resetChatbotLog() {
+  const messagesList = document.getElementById('chatbot-messages-list');
+  if (messagesList) {
+    messagesList.innerHTML = `
+      <div class="chat-msg bot-msg">
+        <div class="chat-msg-bubble">
+          Hello! 👋 I am <strong>Shreya's AI Assistant</strong>.
+          <br/><br/>
+          I can answer questions about Shreya Ghodmare's background, technical skills, AI/ML projects (KisanBandhu, CityCare, Warehouse System), research publications, and contact info.
+          <br/><br/>
+          How can I help you today?
+        </div>
+      </div>
+    `;
+  }
+}
+
+function handleChatbotKeyDown(e) {
+  if (e.key === 'Enter') {
+    handleChatbotSend();
+  }
+}
+
+function sendQuickPrompt(promptText) {
+  const inputField = document.getElementById('chatbot-input-field');
+  if (inputField) {
+    inputField.value = promptText;
+    handleChatbotSend();
+  }
+}
+
+function handleChatbotSend() {
+  const inputField = document.getElementById('chatbot-input-field');
+  const messagesList = document.getElementById('chatbot-messages-list');
+  if (!inputField || !messagesList) return;
+
+  const userQuery = inputField.value.trim();
+  if (!userQuery) return;
+
+  // Render User Message
+  const userMsgDiv = document.createElement('div');
+  userMsgDiv.className = 'chat-msg user-msg';
+  userMsgDiv.innerHTML = `<div class="chat-msg-bubble">${escapeHtml(userQuery)}</div>`;
+  messagesList.appendChild(userMsgDiv);
+
+  inputField.value = '';
+  scrollChatToBottom();
+
+  // Show Typing Indicator
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'chat-msg bot-msg typing-msg';
+  typingDiv.innerHTML = `<div class="chat-msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+  messagesList.appendChild(typingDiv);
+  scrollChatToBottom();
+
+  // Process Query & Respond with Delay
+  setTimeout(() => {
+    // Remove Typing Indicator
+    if (typingDiv.parentNode) {
+      typingDiv.parentNode.removeChild(typingDiv);
+    }
+
+    const botResponse = matchQueryToKnowledgeBase(userQuery);
+    const botMsgDiv = document.createElement('div');
+    botMsgDiv.className = 'chat-msg bot-msg';
+    botMsgDiv.innerHTML = `<div class="chat-msg-bubble">${botResponse}</div>`;
+    messagesList.appendChild(botMsgDiv);
+    scrollChatToBottom();
+
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  }, 650);
+}
+
+function matchQueryToKnowledgeBase(query) {
+  const normalized = query.toLowerCase().replace(/[^\w\s]/gi, '');
+  let bestMatch = null;
+  let maxScore = 0;
+
+  SHREYA_KNOWLEDGE_BASE.forEach(entry => {
+    let score = 0;
+    entry.keywords.forEach(kw => {
+      if (normalized.includes(kw)) {
+        score += kw.length; // prioritize longer, more specific matches
+      }
+    });
+    if (score > maxScore) {
+      maxScore = score;
+      bestMatch = entry;
+    }
+  });
+
+  if (bestMatch && maxScore > 0) {
+    return bestMatch.response;
+  } else {
+    return OUT_OF_SCOPE_RESPONSE;
+  }
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.innerText = text;
+  return div.innerHTML;
+}
+
+function scrollChatToBottom() {
+  const messagesList = document.getElementById('chatbot-messages-list');
+  if (messagesList) {
+    messagesList.scrollTop = messagesList.scrollHeight;
+  }
+}
+
