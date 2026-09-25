@@ -2196,33 +2196,42 @@ body {
 }
 
 .chatbot-suggestions {
-  padding: 0.5rem 0.85rem;
+  padding: 0.55rem 0.85rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
   background: #fdfbf7;
-  border-top: 1px dashed rgba(128, 0, 32, 0.12);
-  max-height: 110px;
-  overflow-y: auto;
+  border-top: 1px solid rgba(128, 0, 32, 0.08);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chatbot-suggestions::-webkit-scrollbar {
+  display: none;
 }
 
 .chip-btn {
   background: #ffffff;
-  border: 1px solid rgba(128, 0, 32, 0.22);
-  color: #800020;
-  padding: 0.32rem 0.65rem;
-  border-radius: 12px;
-  font-size: 0.72rem;
+  border: 1px solid rgba(128, 0, 32, 0.16);
+  color: #5d0017;
+  padding: 0.38rem 0.8rem;
+  border-radius: 18px;
+  font-size: 0.73rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .chip-btn:hover {
   background: #800020;
   color: #ffffff;
   border-color: #800020;
+  transform: translateY(-1px);
 }
 
 .chatbot-input-bar {
