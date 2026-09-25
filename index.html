@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <title>Shreya Ghodmare — AI/ML, Backend & Generative AI Systems</title>
+  <meta name="description" content="Personal editorial and technical engineering portfolio of Shreya Ghodmare. Building intelligent systems across AI/ML, Healthcare, RAG, and Logistics." />
+  
+  <link rel="stylesheet" href="styles.css?v=20260924_v20" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Subtle Technical Grid Background -->
+  <div class="tech-grid-background"></div>
+
+  <!-- CONTINUOUS VERTICAL SHREYA WATERMARK SYSTEM -->
+  <div id="watermark-side-system" aria-hidden="true">
+    <div class="watermark-side-column watermark-side-left">
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+    </div>
+    <div class="watermark-side-column watermark-side-right">
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+      <div class="watermark-item">SHREYA</div>
+    </div>
+  </div>
+
+  <!-- DEDICATED FULL-SCREEN ENTRANCE / LANDING PAGE COVER -->
+  <div id="landing-entrance-page" class="landing-entrance">
+    <div class="landing-content">
+      <!-- Top Brand Tag -->
+      <div class="landing-top-tag">EST. 2026 &middot; PERSONAL PORTFOLIO</div>
+
+      <!-- Kinetic Editorial Mark & Letterform Assembly -->
+      <div class="landing-brand-container">
+        <!-- Thin Burgundy Editorial Line Mark -->
+        <div class="landing-editorial-line"></div>
+
+        <!-- Kinetic Letterform Signature Assembly -->
+        <div class="landing-kinetic-word">
+          <span class="kinetic-letter letter-s" style="--delay: 0.3s; --x: -40px; --y: 15px;">S</span>
+          <span class="kinetic-letter letter-h" style="--delay: 0.42s; --x: -20px; --y: -20px;">h</span>
+          <span class="kinetic-letter letter-r" style="--delay: 0.54s; --x: 10px; --y: 30px;">r</span>
+          <span class="kinetic-letter letter-e" style="--delay: 0.66s; --x: -15px; --y: -15px;">e</span>
+          <span class="kinetic-letter letter-y" style="--delay: 0.78s; --x: 25px; --y: 20px;">y</span>
+          <span class="kinetic-letter letter-a" style="--delay: 0.9s; --x: 40px; --y: -10px;">a</span>
+        </div>
+      </div>
+
+      <!-- Bottom Meta Footer & Skip Intro Button -->
+      <div class="landing-footer">
+        <span class="landing-year">AI/ML &middot; BACKEND &middot; RESEARCH</span>
+        <button class="landing-skip-btn" id="skip-landing-btn" onclick="dismissLandingPage()">
+          <span>ENTER PORTFOLIO</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Minimal Navbar -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-brand">
+      SHREYA <span class="brand-dot"></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#who-i-am" class="nav-link">Who I Am</a></li>
+      <li><a href="#projects" class="nav-link">Work</a></li>
+      <li><a href="#research" class="nav-link">Research</a></li>
+      <li><a href="#achievements" class="nav-link">Achievements</a></li>
+      <li><a href="#leadership" class="nav-link">Leadership</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openContactModal()">Let's Talk</button>
+  </nav>
+
+  <!-- Main Content Wrapper -->
+  <main>
+
+    <!-- HERO SECTION (LARGE TRANSPARENT CUTOUT PORTRAIT COMPOSITION) -->
+    <section id="hero" class="hero-section section">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- LEFT CONTENT -->
+          <div class="hero-left">
+            <div class="hero-name-badge">
+              <span>SHREYA GHODMARE</span>
+            </div>
+            <div class="hero-roles-bar">
+              AI/ML &middot; BACKEND &middot; GENERATIVE AI &middot; RESEARCH
+            </div>
+            <h1 class="hero-main-title">
+              BUILDING<br />
+              <span>INTELLIGENT</span><br />
+              SYSTEMS.
+            </h1>
+            <p class="hero-description">
+              Turning real-world problems into working technology.
+            </p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn-primary">
+                View My Work <i data-lucide="arrow-down-right"></i>
+              </a>
+              <button class="btn-secondary" onclick="openContactModal()">
+                Let's Connect <i data-lucide="mail"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- RIGHT LARGE TRANSPARENT CUTOUT PERSON -->
+          <div class="hero-right-cutout">
+            <div class="hero-cutout-glow"></div>
+            <img src="assets/images/profile-cutout-transparent.png" alt="Shreya Ghodmare Cutout Portrait" class="hero-cutout-portrait" />
+            <div class="hero-floating-badge">
+              <span class="dot"></span>
+              <span>Open for AI/ML &amp; Backend Engineering Roles</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO I AM SECTION -->
+    <section id="who-i-am" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">01 / OVERVIEW</div>
+          <h2 class="section-title">WHO I AM</h2>
+        </div>
+
+        <div class="who-box">
+          <div class="who-headline">Architecting Intelligent Systems &amp; RAG Pipelines</div>
+          <p class="who-text">
+            Final-year Information Technology student focused on AI/ML, Generative AI, backend systems, and research. Dedicated to designing scalable, production-grade intelligence architectures that solve complex real-world challenges.
+          </p>
+          <div class="who-keywords">
+            <span class="keyword-chip">PYTHON</span>
+            <span class="keyword-chip">AI/ML</span>
+            <span class="keyword-chip">RAG</span>
+            <span class="keyword-chip">FASTAPI</span>
+            <span class="keyword-chip">POSTGRESQL</span>
+            <span class="keyword-chip">COMPUTER VISION</span>
+            <span class="keyword-chip">GENERATIVE AI</span>
+            <span class="keyword-chip">RESEARCH</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS CHAPTER (ONE MAJOR PROJECTS SECTION) -->
+    <section id="projects" class="section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">02 / PROJECTS</div>
+          <h2 class="section-title">PROJECTS</h2>
+          <p class="section-subtitle">Sophisticated case studies featuring interactive architecture flows, digital workflows, and live system deployments.</p>
+        </div>
+
+        <div class="projects-stack">
+
+          <!-- PROJECT 01: KISAN BANDHU -->
+          <article class="editorial-project-card" id="project-kisan-bandhu">
+            <div class="card-header-bar">
+              <span class="card-project-number">01 / PROJECT &middot; SYSTEM_01</span>
+              <span class="card-project-category">AI &times; AGRICULTURE</span>
+            </div>
+
+            <h3 class="card-project-title">01 &mdash; KISAN BANDHU</h3>
+
+            <p class="card-project-description">
+              Intelligent agricultural supply chain and advisory platform empowering farmers with Retrieval-Augmented Generation (RAG) crop insights, disease diagnostics, market pricing transparency, and direct communication channels.
+            </p>
+
+            <div class="card-tech-tags">
+              <span class="tech-tag">PYTHON</span>
+              <span class="tech-tag">FASTAPI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">POSTGRESQL</span>
+              <span class="tech-tag">LLM</span>
+              <span class="tech-tag">VECTOR DB</span>
+            </div>
+
+            <!-- Automatic Screenshot Slideshow (2 Screenshots) -->
+            <div class="slideshow-viewport" data-slideshow="kisanbandhu">
+              <div class="slideshow-stage">
+                <div class="slideshow-item" onclick="openLightbox('assets/images/kisanbandhu/01-contract-farming-portal.png')">
+                  <img src="assets/images/kisanbandhu/01-contract-farming-portal.png" alt="Kisan Bandhu Unified Portal" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">UNIFIED CONTRACT FARMING PORTAL &amp; APMC LIVE MARKET TICKER</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/kisanbandhu/02-agri-bot-assistant.png')">
+                  <img src="assets/images/kisanbandhu/02-agri-bot-assistant.png" alt="Agri-Bot AI Assistant" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">AGRI-BOT AI ASSISTANT &amp; MULTILINGUAL ADVISORY DASHBOARD</span>
+                  </div>
+                </div>
+              </div>
+              <div class="slideshow-controls-bar">
+                <span class="slideshow-counter">1 / 2</span>
+                <div class="slideshow-buttons">
+                  <button class="slideshow-btn prev-btn"><i data-lucide="chevron-left"></i></button>
+                  <button class="slideshow-btn next-btn"><i data-lucide="chevron-right"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-actions-bar">
+              <a href="https://kisan-bandhu-4wlq.onrender.com/" target="_blank" rel="noopener" class="btn-primary">
+                Live Demo <i data-lucide="external-link"></i>
+              </a>
+              <a href="https://github.com/Shreya10110" target="_blank" rel="noopener" class="btn-secondary">
+                GitHub Repository <i data-lucide="github"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 02: CITYCARE -->
+          <article class="editorial-project-card" id="project-citycare">
+            <div class="card-header-bar">
+              <span class="card-project-number">02 / PROJECT &middot; SYSTEM_02</span>
+              <span class="card-project-category">AI-ENABLED HEALTHCARE</span>
+            </div>
+
+            <h3 class="card-project-title">02 &mdash; CITYCARE</h3>
+
+            <div class="card-project-description" style="line-height: 1.7;">
+              <p style="margin-bottom: 0.75rem;">&bull; Developed a role-based hospital management system for patients and doctors with appointment management and digital prescription workflows.</p>
+              <p>&bull; Integrated a Gemini-powered RAG assistant for prescription-based patient queries and Cloudinary-based PDF prescription storage.</p>
+            </div>
+
+            <div class="card-tech-tags">
+              <span class="tech-tag">REACT</span>
+              <span class="tech-tag">FASTAPI</span>
+              <span class="tech-tag">POSTGRESQL</span>
+              <span class="tech-tag">HEALTHCARE AI</span>
+              <span class="tech-tag">JWT AUTH</span>
+              <span class="tech-tag">RAG ASSISTANT</span>
+              <span class="tech-tag">CLOUDINARY</span>
+              <span class="tech-tag">GEMINI</span>
+            </div>
+
+            <!-- Automatic Screenshot Slideshow (8 Screenshots) -->
+            <div class="slideshow-viewport" data-slideshow="citycare">
+              <div class="slideshow-stage">
+                <div class="slideshow-item" onclick="openLightbox('assets/images/citycare/01-patient-assistant.jpeg')">
+                  <img src="assets/images/citycare/01-patient-assistant.jpeg" alt="Patient Portal" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">PATIENT PORTAL &amp; GEMINI RAG HEALTH ASSISTANT</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/citycare/02-create-prescription.jpeg')">
+                  <img src="assets/images/citycare/02-create-prescription.jpeg" alt="Doctor Portal" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">DOCTOR PORTAL: DIGITAL PRESCRIPTION WORKFLOW</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/citycare/03-doctor-appointments.jpeg')">
+                  <img src="assets/images/citycare/03-doctor-appointments.jpeg" alt="Doctor Workspace" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">DOCTOR WORKSPACE: APPOINTMENT MANAGEMENT</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/citycare/04-hospital-profile.jpeg')">
+                  <img src="assets/images/citycare/04-hospital-profile.jpeg" alt="Hospital Profile" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">HOSPITAL MANAGEMENT: ARJUNA CARE CENTER</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/citycare/05-doctor-verification.jpeg')">
+                  <img src="assets/images/citycare/05-doctor-verification.jpeg" alt="Doctor Verification" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">ADMIN VERIFICATION CENTRE: DOCTOR VERIFICATION</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/citycare/06-login-portal.jpeg')">
+                  <img src="assets/images/citycare/06-login-portal.jpeg" alt="Login Portal" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">CONNECTED CARE SECURE JWT LOGIN PORTAL</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/citycare/07-verified-doctors.jpeg')">
+                  <img src="assets/images/citycare/07-verified-doctors.jpeg" alt="Verified Doctors" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">VERIFIED DOCTORS REGISTRY</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/citycare/08-verified-hospitals.jpeg')">
+                  <img src="assets/images/citycare/08-verified-hospitals.jpeg" alt="Verified Hospitals" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">VERIFIED HOSPITALS REGISTRY</span>
+                  </div>
+                </div>
+              </div>
+              <div class="slideshow-controls-bar">
+                <span class="slideshow-counter">1 / 8</span>
+                <div class="slideshow-buttons">
+                  <button class="slideshow-btn prev-btn"><i data-lucide="chevron-left"></i></button>
+                  <button class="slideshow-btn next-btn"><i data-lucide="chevron-right"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-actions-bar">
+              <a href="https://citycare-frontend.onrender.com/login" target="_blank" rel="noopener" class="btn-primary">
+                Live Demo <i data-lucide="external-link"></i>
+              </a>
+              <a href="https://github.com/Shreya10110/CityCare" target="_blank" rel="noopener" class="btn-secondary">
+                GitHub <i data-lucide="github"></i>
+              </a>
+              <button class="btn-secondary" onclick="openDemoModal('CityCare Healthcare', 'admin@citycare.example.com', 'CityCareLocalAdmin@2026')">
+                Demo Access <i data-lucide="key"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- PROJECT 03: WAREHOUSE MANAGEMENT -->
+          <article class="editorial-project-card" id="project-warehouse">
+            <div class="card-header-bar">
+              <span class="card-project-number">03 / PROJECT &middot; SYSTEM_03</span>
+              <span class="card-project-category">LOGISTICS &amp; CLOUD SYSTEMS</span>
+            </div>
+
+            <h3 class="card-project-title">03 &mdash; MULTI-WAREHOUSE MANAGEMENT &amp; INVENTORY FULFILLMENT SYSTEM</h3>
+
+            <div class="card-project-description" style="line-height: 1.7;">
+              <p style="margin-bottom: 0.5rem;">&bull; Developed a full-stack healthcare management platform for patients, doctors, hospitals, and administrators.</p>
+              <p style="margin-bottom: 0.5rem;">&bull; Implemented role-based authentication and secure access control using JWT.</p>
+              <p style="margin-bottom: 0.5rem;">&bull; Built modules for appointments, patient records, prescriptions, and hospital workflows.</p>
+              <p style="margin-bottom: 0.5rem;">&bull; Integrated AI-powered assistance to improve user interaction and information access.</p>
+              <p>&bull; Implemented RESTful APIs and database-driven backend services using FastAPI.</p>
+            </div>
+
+            <div class="card-tech-tags">
+              <span class="tech-tag">REACT</span>
+              <span class="tech-tag">FASTAPI</span>
+              <span class="tech-tag">POSTGRESQL</span>
+              <span class="tech-tag">SUPABASE</span>
+              <span class="tech-tag">JWT</span>
+              <span class="tech-tag">CLOUDINARY</span>
+              <span class="tech-tag">GEMINI</span>
+            </div>
+
+            <!-- Automatic Screenshot Slideshow (7 Screenshots) -->
+            <div class="slideshow-viewport" data-slideshow="warehouse">
+              <div class="slideshow-stage">
+                <div class="slideshow-item" onclick="openLightbox('assets/images/warehouse/01-control-centre-login.png')">
+                  <img src="assets/images/warehouse/01-control-centre-login.png" alt="Shift Control Centre" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">WHITFIELD FULFILLMENT SHIFT CONTROL CENTRE</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/warehouse/02-registration-approval.png')">
+                  <img src="assets/images/warehouse/02-registration-approval.png" alt="Registration Pending Approval" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">ROLE REGISTRATION &amp; OWNER APPROVAL STATUS</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/warehouse/03-manager-approval-queue.png')">
+                  <img src="assets/images/warehouse/03-manager-approval-queue.png" alt="Manager Approval Queue" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">MANAGER APPROVAL QUEUE DASHBOARD</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/warehouse/04-activity-logs.png')">
+                  <img src="assets/images/warehouse/04-activity-logs.png" alt="Inbound Activity Log" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">INBOUND ACTIVITY STREAM &amp; DAMAGE REPORTS</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/warehouse/05-inbound-progress.png')">
+                  <img src="assets/images/warehouse/05-inbound-progress.png" alt="Inbound Progress" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">INBOUND PROGRESS MONITORING DASHBOARD</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/warehouse/06-outbound-queue.png')">
+                  <img src="assets/images/warehouse/06-outbound-queue.png" alt="Outbound Queue" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">OUTBOUND WORK QUEUE (PICK, PACK &amp; SHIP)</span>
+                  </div>
+                </div>
+                <div class="slideshow-item" onclick="openLightbox('assets/images/warehouse/07-shipping-label.png')">
+                  <img src="assets/images/warehouse/07-shipping-label.png" alt="Shipping Label Generator" />
+                  <div class="slideshow-caption-bar">
+                    <span class="slideshow-caption-text">AUTOMATED SHIPPING LABEL GENERATION</span>
+                  </div>
+                </div>
+              </div>
+              <div class="slideshow-controls-bar">
+                <span class="slideshow-counter">1 / 7</span>
+                <div class="slideshow-buttons">
+                  <button class="slideshow-btn prev-btn"><i data-lucide="chevron-left"></i></button>
+                  <button class="slideshow-btn next-btn"><i data-lucide="chevron-right"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-actions-bar">
+              <a href="https://warehouse-frontend-v2cu.onrender.com/login" target="_blank" rel="noopener" class="btn-primary">
+                Live Demo <i data-lucide="external-link"></i>
+              </a>
+              <a href="https://github.com/Shreya10110" target="_blank" rel="noopener" class="btn-secondary">
+                GitHub <i data-lucide="github"></i>
+              </a>
+              <button class="btn-secondary" onclick="openDemoModal('Multi-Warehouse System', 'admin@whitfield.com', 'Admin@123')">
+                Demo Access <i data-lucide="key"></i>
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS CHAPTER -->
+    <section id="achievements" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">03 / ACHIEVEMENTS</div>
+          <h2 class="section-title">ACHIEVEMENTS</h2>
+          <p class="section-subtitle">Consistent top podium achievements in national hackathons and engineering competitions featuring real event memories.</p>
+        </div>
+
+        <div class="achievements-square-grid">
+
+          <!-- 01: 1ST PLACE - SB JAIN IDEATHON -->
+          <div class="achievement-square-card">
+            <div>
+              <div class="achievement-rank-box">
+                <div class="achievement-rank-text">1ST</div>
+                <span class="achievement-rank-label">WINNER</span>
+              </div>
+              <div class="achievement-info">
+                <h3 class="achievement-title">IdeaThon 2026</h3>
+                <p class="achievement-institution">SB Jain Institute of Technology</p>
+                <p class="achievement-prize">1st Position &middot; Idea Pitch Arena</p>
+              </div>
+            </div>
+            <div class="achievement-photo-slideshow" data-ach-slideshow="sb-jain">
+              <div class="achievement-photo-track">
+                <div class="achievement-photo-slide">
+                  <img src="assets/images/achievements/sb-jain/photo1.png" alt="SB Jain Award Handover" />
+                </div>
+                <div class="achievement-photo-slide">
+                  <img src="assets/images/achievements/sb-jain/photo2.png" alt="SB Jain Presentation Slide" />
+                </div>
+              </div>
+              <span class="achievement-photo-counter">1 / 2</span>
+            </div>
+          </div>
+
+          <!-- 02: 2ND PLACE - GOVT COLLEGE NAGPUR -->
+          <div class="achievement-square-card">
+            <div>
+              <div class="achievement-rank-box">
+                <div class="achievement-rank-text">2ND</div>
+                <span class="achievement-rank-label">RUNNER UP</span>
+              </div>
+              <div class="achievement-info">
+                <h3 class="achievement-title">Project Competition</h3>
+                <p class="achievement-institution">Govt College of Engineering, Nagpur</p>
+                <p class="achievement-prize">2nd Position in Regional Project Pitch</p>
+              </div>
+            </div>
+            <div class="achievement-photo-slideshow" data-ach-slideshow="nagpur-govt">
+              <div class="achievement-photo-track">
+                <div class="achievement-photo-slide">
+                  <img src="assets/images/achievements/nagpur-govt/photo1.png" alt="Team receiving Project Competition Award" />
+                </div>
+              </div>
+              <span class="achievement-photo-counter">1 / 1</span>
+            </div>
+          </div>
+
+          <!-- 03: 1ST RUNNER UP (2ND PLACE) - NIT HACKATHON -->
+          <div class="achievement-square-card">
+            <div>
+              <div class="achievement-rank-box">
+                <div class="achievement-rank-text">2ND</div>
+                <span class="achievement-rank-label">&#8377;21,000 PRIZE</span>
+              </div>
+              <div class="achievement-info">
+                <h3 class="achievement-title">Rising India National Hackathon</h3>
+                <p class="achievement-institution">Nagpur Institute of Technology (NIT)</p>
+                <p class="achievement-prize">1st Runner-Up &middot; &#8377;21,000 Cash Prize Winner</p>
+              </div>
+            </div>
+            <div class="achievement-photo-slideshow" data-ach-slideshow="nit">
+              <div class="achievement-photo-track">
+                <div class="achievement-photo-slide">
+                  <img src="assets/images/achievements/nit-hackathon/photo1.png" alt="Shreya with Trophy & Cheque" />
+                </div>
+                <div class="achievement-photo-slide">
+                  <img src="assets/images/achievements/nit-hackathon/photo2.png" alt="NIT Hackathon Team" />
+                </div>
+                <div class="achievement-photo-slide">
+                  <img src="assets/images/achievements/nit-hackathon/photo3.png" alt="NIT Hackathon Stage Ceremony" />
+                </div>
+              </div>
+              <span class="achievement-photo-counter">1 / 3</span>
+            </div>
+          </div>
+
+          <!-- 04: 3RD PLACE - KDK HACKATHON -->
+          <div class="achievement-square-card">
+            <div>
+              <div class="achievement-rank-box">
+                <div class="achievement-rank-text">3RD</div>
+                <span class="achievement-rank-label">2ND RUNNER UP</span>
+              </div>
+              <div class="achievement-info">
+                <h3 class="achievement-title">National Level Hackathon</h3>
+                <p class="achievement-institution">KDK College of Engineering, Nagpur</p>
+                <p class="achievement-prize">Trophy &amp; Certificate of Excellence</p>
+              </div>
+            </div>
+            <div class="achievement-photo-slideshow" data-ach-slideshow="kdk">
+              <div class="achievement-photo-track">
+                <div class="achievement-photo-slide">
+                  <img src="assets/images/achievements/kdk-hackathon/photo1.png" alt="KDK Hackathon Team Trophy" />
+                </div>
+              </div>
+              <span class="achievement-photo-counter">1 / 1</span>
+            </div>
+          </div>
+
+          <!-- 05: 1ST PLACE - RESEARCH PAPER PRESENTATION -->
+          <div class="achievement-square-card">
+            <div>
+              <div class="achievement-rank-box">
+                <div class="achievement-rank-text">1ST</div>
+                <span class="achievement-rank-label">1ST WINNER</span>
+              </div>
+              <div class="achievement-info">
+                <h3 class="achievement-title">Research Paper Presentation</h3>
+                <p class="achievement-institution">Gaikwad Patil College of Engineering</p>
+                <p class="achievement-prize" style="font-size: 0.78rem; font-weight: 600; color: var(--color-burgundy); margin-top: 0.25rem;">
+                  AI-Based Pose Estimation System for Exercise Error Detection and Telerehabilitation Support in Resource-Constrained Settings
+                </p>
+                <div style="margin-top: 0.5rem;">
+                  <a href="assets/docs/Final_rehab.pdf?v=20260924_v13" target="_blank" class="btn-secondary" style="font-size: 0.72rem; padding: 0.35rem 0.75rem; display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 4px;">
+                    View PDF <i data-lucide="file-text" style="width: 14px; height: 14px;"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="achievement-photo-slideshow" data-ach-slideshow="paper">
+              <div class="achievement-photo-track">
+                <div class="achievement-photo-slide">
+                  <img src="assets/images/achievements/paper-presentation/photo1.png" alt="Shreya holding Research Paper Certificate & 1st Winner Trophy" />
+                </div>
+              </div>
+              <span class="achievement-photo-counter">1 / 1</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH SECTION -->
+    <section id="research" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">04 / RESEARCH</div>
+          <h2 class="section-title">PUBLICATIONS &amp; RESEARCH</h2>
+          <p class="section-subtitle">Academic research papers focusing on RAG optimization, healthcare security, and distributed backend systems.</p>
+        </div>
+
+        <div class="research-list">
+          <div class="research-item">
+            <div class="research-num">01 / RESEARCH &middot; TELEREHABILITATION &amp; COMPUTER VISION</div>
+            <h3 class="research-title">AI-Based Pose Estimation System for Exercise Error Detection and Telerehabilitation Support in Resource-Constrained Settings</h3>
+            <p class="research-venue">Turnitin Verified Research Paper | Authors: Shreya Ghodmare, Bhumika Kuditipudi, Shantanu Mangalker, Vrushabh Shende, Manthan Shirkhe, Kapil Tabhane</p>
+            <a href="assets/docs/Final_rehab.pdf?v=20260924_v13" target="_blank" class="btn-secondary" style="font-size: 0.75rem; padding: 0.5rem 1rem; display: inline-flex; align-items: center; gap: 0.5rem;">View PDF <i data-lucide="external-link"></i></a>
+          </div>
+
+          <div class="research-item">
+            <div class="research-num">02 / RESEARCH &middot; AI, BLOCKCHAIN &amp; AGRICULTURE</div>
+            <h3 class="research-title">Kisan Bandhu: An AI and Blockchain Enabled Platform for Transparent Contract Farming in India</h3>
+            <p class="research-venue">Turnitin Verified Research Paper | Submission ID: trn:oid:::18453:128383814</p>
+            <a href="assets/docs/Kisan-Bandhu-Contract-Farming-Paper.pdf?v=20260924_v16" target="_blank" class="btn-secondary" style="font-size: 0.75rem; padding: 0.5rem 1rem; display: inline-flex; align-items: center; gap: 0.5rem;">View PDF <i data-lucide="external-link"></i></a>
+          </div>
+
+          <div class="research-item">
+            <div class="research-num">03 / RESEARCH &middot; AI AUDITING &amp; INSTITUTIONAL COMPLIANCE</div>
+            <h3 class="research-title">INSPIRO: An AI-Driven Institution Auditor</h3>
+            <p class="research-venue">Turnitin Verified Research Paper | AI &amp; LLM-Powered Institutional Compliance &amp; Automated Audit System</p>
+            <a href="assets/docs/INSPIRO-AI-Driven-Institution-Auditor-Paper.pdf?v=20260924_v15" target="_blank" class="btn-secondary" style="font-size: 0.75rem; padding: 0.5rem 1rem; display: inline-flex; align-items: center; gap: 0.5rem;">View PDF <i data-lucide="external-link"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP & ORGANIZING SECTION -->
+    <section id="leadership" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">05 / LEADERSHIP</div>
+          <h2 class="section-title">LEADERSHIP &amp; ORGANIZING</h2>
+          <p class="section-subtitle">Leading technical promotional drives, regional event registrations, and executive student committees.</p>
+        </div>
+
+        <div class="leadership-grid">
+          
+          <div class="leadership-card">
+            <div class="leadership-img-frame">
+              <img src="assets/images/leadership/01-technex-promotion-lead.png" alt="TECHNEX 2025 Core Team" />
+            </div>
+            <div class="leadership-content">
+              <div class="leadership-role">CORE PROMOTION TEAM MEMBER</div>
+              <h3 class="leadership-event">TECHNEX 2025</h3>
+            </div>
+          </div>
+
+          <div class="leadership-card">
+            <div class="leadership-img-frame">
+              <img src="assets/images/leadership/02-cii-registration-head.png" alt="CII 2025 Registration Head Formal Team" />
+            </div>
+            <div class="leadership-content">
+              <div class="leadership-role">REGISTRATION HEAD</div>
+              <h3 class="leadership-event">CII 2025</h3>
+            </div>
+          </div>
+
+          <!-- CSI JOINT SECRETARY CARD UPDATED WITH AUDITORIUM STAGE PHOTO -->
+          <div class="leadership-card">
+            <div class="leadership-img-frame">
+              <img src="assets/images/csi-joint-secretary.jpg?v=20260924_v11" alt="CSI Joint Secretary St Vincent Pallotti Auditorium Stage Team" />
+            </div>
+            <div class="leadership-content">
+              <div class="leadership-role">JOINT SECRETARY</div>
+              <h3 class="leadership-event">COMPUTER SOCIETY OF INDIA (CSI)</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & TRAINING TIMELINE -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">06 / EXPERIENCE &amp; TRAINING</div>
+          <h2 class="section-title">EXPERIENCE &amp; TRAINING</h2>
+          <p class="section-subtitle">Industry internship experience and hands-on engineering development training.</p>
+        </div>
+
+        <div class="timeline-list">
+          
+          <div class="timeline-item">
+            <div>
+              <span class="timeline-type-tag">EXPERIENCE</span>
+              <div class="timeline-date">6 MONTHS &middot; INTERNSHIP</div>
+            </div>
+            <div>
+              <h3 class="timeline-title">ML Engineer Intern</h3>
+              <div class="timeline-company">Leading India AI</div>
+              <p class="timeline-desc">Worked as a Machine Learning Engineer Intern for 6 months, building end-to-end ML models, data pipelines, and intelligent AI features.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div>
+              <span class="timeline-type-tag">TRAINING</span>
+              <div class="timeline-date">HANDS-ON LEARNING</div>
+            </div>
+            <div>
+              <h3 class="timeline-title">Forward Developer Engineer &amp; Generative AI</h3>
+              <div class="timeline-company">Eigi AI</div>
+              <p class="timeline-desc">Intensive hands-on engineering training program covering Forward Developer Engineering workflows, Generative AI applications, and LLM system design.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER / FINAL SECTION -->
+    <footer id="contact" class="footer-section">
+      <div class="container">
+        <div class="footer-sub">STILL BUILDING.</div>
+        <h2 class="footer-title">LET'S BUILD SOMETHING.</h2>
+
+        <div class="footer-nav-links">
+          <button class="footer-nav-link" onclick="openContactModal()">
+            Let's Connect <i data-lucide="arrow-up-right"></i>
+          </button>
+          <a href="https://www.linkedin.com/in/shreya-ghodmare-216417308/" target="_blank" rel="noopener" class="footer-nav-link">
+            LinkedIn <i data-lucide="arrow-up-right"></i>
+          </a>
+          <a href="https://github.com/Shreya10110" target="_blank" rel="noopener" class="footer-nav-link">
+            GitHub <i data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+
+        <div class="footer-copyright">
+          &copy; 2026 SHREYA GHODMARE &middot; ALL RIGHTS RESERVED
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ALL CONTACT DETAILS MODAL -->
+  <div id="contact-modal" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeContactModal()">&times;</button>
+      <h3 class="modal-title">Shreya Ghodmare</h3>
+      <div class="modal-subtitle">Direct Contact &amp; Profiles</div>
+
+      <div class="field-group">
+        <label class="field-label">Email Address</label>
+        <div class="copy-input-row">
+          <input type="text" id="contact-email-val" class="copy-input" value="ghodmareshreya@gmail.com" readonly />
+          <button class="btn-copy" onclick="copyValue('contact-email-val', this)">Copy</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Phone Number</label>
+        <div class="copy-input-row">
+          <input type="text" id="contact-phone-val" class="copy-input" value="+91 9545853876" readonly />
+          <button class="btn-copy" onclick="copyValue('contact-phone-val', this)">Copy</button>
+        </div>
+      </div>
+
+      <div class="contact-links-grid">
+        <a href="https://www.linkedin.com/in/shreya-ghodmare-216417308/" target="_blank" rel="noopener" class="contact-external-link">
+          LinkedIn <i data-lucide="external-link"></i>
+        </a>
+        <a href="https://github.com/Shreya10110" target="_blank" rel="noopener" class="contact-external-link">
+          GitHub <i data-lucide="external-link"></i>
+        </a>
+      </div>
+
+      <p style="font-size: 0.75rem; color: var(--color-charcoal-muted); margin-top: 1.25rem; text-align: center;">
+        Feel free to reach out for engineering roles, AI research collaborations, or projects.
+      </p>
+    </div>
+  </div>
+
+  <!-- DEMO CREDENTIALS MODAL -->
+  <div id="demo-modal" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeDemoModal()">&times;</button>
+      <h3 class="modal-title" id="modal-project-name">Project Credentials</h3>
+      <div class="modal-subtitle">Dedicated Demo Credentials</div>
+
+      <div class="field-group">
+        <label class="field-label">Email / Username</label>
+        <div class="copy-input-row">
+          <input type="text" id="modal-email-val" class="copy-input" readonly />
+          <button class="btn-copy" onclick="copyValue('modal-email-val', this)">Copy</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Password / Contact</label>
+        <div class="copy-input-row">
+          <input type="password" id="modal-pass-val" class="copy-input" readonly />
+          <button class="btn-copy" id="toggle-pass-btn" onclick="togglePasswordMask()">Reveal</button>
+          <button class="btn-copy" onclick="copyValue('modal-pass-val', this)">Copy</button>
+        </div>
+      </div>
+
+      <p style="font-size: 0.75rem; color: var(--color-charcoal-muted); margin-top: 1rem;">
+        Notice: Use these dedicated demo credentials to access administrative workflows.
+      </p>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL FOR SCREENSHOTS -->
+  <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Enlarged Screenshot" />
+  </div>
+
+  <script src="app.js?v=20260924_v18"></script>
+</body>
+</html>
