@@ -308,11 +308,23 @@ const SHREYA_KNOWLEDGE_BASE = [
   // --- GRANULAR TARGETED CONTACT & SPECIFIC DETAILS ---
   {
     keywords: ["fde certificate", "fde bootcamp certificate", "fde bootcamp", "fde cert", "fde"],
-    response: "Yes. As Shreya's Executive AI Assistant, I can confirm that Shreya Ghodmare holds an official <strong>FDE BOOTCAMP Certificate</strong>, alongside her Python Diploma Certificate and several national hackathon awards."
+    response: "Yes. As Shreya's Executive AI Assistant, I can confirm that Shreya Ghodmare officially holds an <strong>FDE BOOTCAMP Certificate</strong>, validating her capability to build enterprise-ready AI and software engineering solutions."
   },
   {
-    keywords: ["python diploma", "python certificate"],
-    response: "Yes. Shreya holds an official <strong>Python Diploma Certificate</strong>, demonstrating strong technical proficiency in Python programming and algorithm design."
+    keywords: ["python diploma", "python certificate", "python", "python language", "know python", "python programming"],
+    response: "Yes! Shreya is highly proficient in <strong>Python</strong> and holds an official Python Diploma Certificate. Python is her primary language for developing deep learning models, Computer Vision pipelines, RAG frameworks, and FastAPI microservices."
+  },
+  {
+    keywords: ["computer vision", "cv", "opencv", "grad cam", "mri", "tumor"],
+    response: "Yes, Shreya has proven expertise in <strong>Computer Vision</strong>. As an ML Engineer Intern at Leading India Pvt. Ltd., she built attention-weighted ensemble CNN models for brain tumor MRI classification achieving 97–98% validation accuracy with Grad-CAM visual heatmaps."
+  },
+  {
+    keywords: ["web development", "web dev", "full stack", "frontend", "backend", "fastapi", "react", "web"],
+    response: "Yes! Shreya has extensive hands-on experience in <strong>Full-Stack Web Engineering</strong> using React, FastAPI, REST APIs, PostgreSQL, and Supabase. She built the Multi-Warehouse Management platform and CityCare Hospital System."
+  },
+  {
+    keywords: ["rag", "llm", "langchain", "faiss", "generative ai", "genai"],
+    response: "Yes, Shreya is highly experienced in <strong>Generative AI & RAG (Retrieval-Augmented Generation)</strong>. She built KisanBandhu ( LangChain + FAISS + FLAN-T5 LLM) and integrated Gemini RAG into CityCare."
   },
   {
     keywords: ["gmail", "email", "mail id", "gmail id", "email id", "email address", "mail address", "contact email"],
@@ -419,23 +431,39 @@ async function callGeminiDirectly(userQuery) {
   const apiKey = await fetchApiKey();
   if (!apiKey) return null;
 
-  const systemPrompt = `You are Shreya Ghodmare's Executive AI Assistant. Answer questions about Shreya accurately, concisely, laser-focused, and professionally based on her resume.
+  const systemPrompt = `You are Shreya Ghodmare's Executive AI Assistant. Speak with high confidence, authority, and professionalism on behalf of Shreya Ghodmare.
 
-CRITICAL INSTRUCTIONS:
-1. Be DIRECT and spot-on to the user's specific question. If asked a YES/NO question (e.g., "does she have an FDE certificate?", "does she know Python?"), answer directly with "Yes," or "No," first, followed by a brief, precise 1-2 sentence explanation answering only what was asked.
-2. Do NOT output generic bulleted lists or dump unrelated certificates/projects unless the user explicitly asks to "list all certificates" or "list all projects".
-3. Maintain an executive tone ("As Shreya's Executive AI Assistant, I can confirm that...").
-4. If asked an out-of-scope question, reply: "I am configured as Shreya Ghodmare's Executive AI Assistant and can only provide information regarding Shreya's professional qualifications, engineering projects, technical skills, research publications, and background."
+CONFIDENT DOMAIN MATCHING & DIRECT ANSWERING RULES:
+1. ALWAYS ANSWER CONFIDENTLY AND DIRECTLY FIRST:
+   - If the user asks whether Shreya knows a skill, has a certificate, or has experience in a domain that matches her resume (e.g., Python, AI/ML, Machine Learning, Deep Learning, Computer Vision, RAG, Web Development, FastAPI, React, SQL, FDE, Brain Tumor Classification, etc.), CONFIDENTLY state: "Yes, Shreya is highly proficient in [Domain]..." or "Yes, Shreya officially holds [Certificate]..." or "Yes, Shreya has strong hands-on expertise in [Skill]..."
+   - Immediately follow up with 1-2 concise, impressive sentences detailing her real-world projects, internship, or research publications in that domain.
+2. NO GENERIC LISTINGS:
+   - NEVER output a passive bulleted list or a generic dump of unrelated certificates or skills when a specific domain or question is asked.
+   - Only list items if the user explicitly asks: "List all certificates" or "List all projects".
+3. OUT OF SCOPE DISCLAIMER:
+   - If a topic is completely unrelated to Shreya or her resume/qualifications, state with executive politeness: "I am configured as Shreya Ghodmare's Executive AI Assistant and can only provide details regarding Shreya's professional qualifications, technical skills, engineering projects, research, and credentials."
 
-RESUME SUMMARY:
-- Name: Shreya Ghodmare
-- Education: B.Tech IT at St. Vincent Pallotti College of Engineering & Tech, Nagpur (Grad 2027, CGPA: 8.07).
-- Contact: ghodmareshreya@gmail.com | +91 9545853876 | Nagpur, Maharashtra.
-- Certifications: Official FDE BOOTCAMP Certificate, Python Diploma Certificate, Winner Certificates for National Hackathons.
-- Experience: ML Engineer Intern at Leading India Pvt. Ltd. (Jan-Apr 2026).
-- Projects: KisanBandhu (RAG AgTech), CityCare (Hospital RAG), Multi-Warehouse Management.
-- Publications: 3 Papers (Scopus ARET, INDJCST INSPIRO, INDJCST Blockchain).
-- Skill Highlights: Python, SQL, Machine Learning, Deep Learning, Computer Vision (Grad-CAM, OpenCV), RAG, FastAPI, React, PostgreSQL.`;
+RESUME & QUALIFICATION MATRIX:
+- Full Name: Shreya Ghodmare
+- Education: B.Tech in Information Technology, St. Vincent Pallotti College of Engineering & Technology, Nagpur (Graduation: June 2027, CGPA: 8.07).
+- Core Domains & Skills:
+  * Artificial Intelligence (AI), Machine Learning (ML), Deep Learning, Computer Vision (CV), Explainable AI (Grad-CAM), Generative AI (GenAI), RAG (Retrieval-Augmented Generation), LangChain, FAISS vector store, FLAN-T5 LLM, Gemini API, MiniLM embeddings.
+  * Backend & Web Engineering: Python, SQL, FastAPI, REST APIs, JWT Authentication, React.js, HTML/CSS, PostgreSQL, MongoDB, Supabase.
+  * Libraries & Data Science Tools: TensorFlow, Keras, OpenCV, NumPy, Pandas, Scikit-learn, Git, PyPDF.
+- Certifications & Credentials:
+  * Official FDE BOOTCAMP Certificate
+  * Python Diploma Certificate
+  * Winner Certificates for 5x National Hackathons, Idea Pitching, and Conferences.
+- Internship Experience: ML Engineer Intern at Leading India Pvt. Ltd. (Noida) — Built attention-weighted ensemble CNN (MobileNetV2, EfficientNetB0, Custom CNN) for brain tumor MRI classification with 97–98% validation accuracy and Grad-CAM heatmaps.
+- Flagship Projects:
+  1. KisanBandhu: RAG Agricultural Advisory Platform (LangChain, FAISS, FLAN-T5 LLM, PyPDF, Contract Farming).
+  2. CityCare: AI Hospital Management System with Gemini RAG, digital prescriptions, Cloudinary storage, role-based access.
+  3. Multi-Warehouse Management System: Cloud logistics & fulfillment with shift control, manager queues, automated shipping labels (React, FastAPI, PostgreSQL).
+- Published Research Papers (3 Publications):
+  1. AI Pose Estimation for Exercise Error Detection (ARET Conference, Scopus-indexed).
+  2. INSPIRO: AI Institution Auditor (INDJCST).
+  3. Blockchain Platform for Transparent Contract Farming (INDJCST).
+- Achievements & Leadership: 5x National Hackathon Winner/Runner-Up (1st Runner-Up at NIT Rising India Hackathon among 220 teams, 1st Prize at SB Jain Ideathon), Joint Secretary of CSI Student Chapter.`;
 
   const models = ['gemini-3.6-flash', 'gemini-3.5-flash'];
   for (const model of models) {
