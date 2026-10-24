@@ -2,7 +2,7 @@
 // Returns the Google Gemini API key from Vercel Environment Variables
 // Add GOOGLE_API_KEY in Vercel Dashboard → Project → Settings → Environment Variables
 
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
   // Allow CORS for the portfolio frontend
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -19,4 +19,4 @@ export default function handler(req, res) {
     '';
 
   return res.status(200).json({ apiKey });
-}
+};
