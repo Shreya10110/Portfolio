@@ -665,15 +665,34 @@ function formatGeminiResponse(rawText) {
 
 function matchQueryToKnowledgeBase(query) {
   const normalized = query.toLowerCase().replace(/[^\w\s]/gi, '');
+  const words = normalized.split(/\s+/).filter(w => w.length > 2);
   let bestMatch = null;
   let maxScore = 0;
 
   SHREYA_KNOWLEDGE_BASE.forEach(entry => {
     let score = 0;
     entry.keywords.forEach(kw => {
+      // 1. Exact substring match (strongest signal)
       if (normalized.includes(kw)) {
-        score += kw.length * 2;
+        score += kw.length * 3;
+        return;
       }
+      // 2. Partial word match: query word starts with keyword (handles "skils" → "skill")
+      words.forEach(word => {
+        if (kw.length >= 4 && word.length >= 4) {
+          const overlap = Math.min(kw.length, word.length);
+          const prefix = Math.floor(overlap * 0.75);
+          if (kw.substring(0, prefix) === word.substring(0, prefix)) {
+            score += prefix;
+          }
+        }
+      });
+      // 3. Keyword starts with query word (handles short abbreviations)
+      words.forEach(word => {
+        if (word.length >= 4 && kw.startsWith(word)) {
+          score += word.length;
+        }
+      });
     });
     if (score > maxScore) {
       maxScore = score;
@@ -683,10 +702,18 @@ function matchQueryToKnowledgeBase(query) {
 
   if (bestMatch && maxScore > 0) {
     return bestMatch.response;
-  } else {
-    return OUT_OF_SCOPE_RESPONSE;
   }
+
+  // 4. Shreya-aware catch-all: if query mentions "shreya" or seems like a profile question
+  const shreya_signals = ['shreya', 'she', 'her', 'ghodmare', 'tell me', 'about', 'who'];
+  const hasShreya = shreya_signals.some(s => normalized.includes(s));
+  if (hasShreya) {
+    return "Shreya Ghodmare is an <strong>AI/ML Engineer</strong> and final-year B.Tech IT student (CGPA 8.07) at St. Vincent Pallotti College, Nagpur.<br/><br/>Her core expertise spans <strong>Machine Learning, Deep Learning, Computer Vision, Generative AI & RAG, FastAPI, React, PostgreSQL</strong>.<br/><br/>She has built 3 flagship systems (KisanBandhu, CityCare, Multi-Warehouse), published 3 research papers, and won 5× national hackathons.<br/><br/>What would you like to know more about? Try asking about her <em>projects</em>, <em>skills</em>, <em>research</em>, or <em>contact details</em>.";
+  }
+
+  return OUT_OF_SCOPE_RESPONSE;
 }
+
 
 function escapeHtml(text) {
   const div = document.createElement('div');
