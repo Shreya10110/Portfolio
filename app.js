@@ -370,7 +370,7 @@ const SHREYA_KNOWLEDGE_BASE = [
   },
   {
     keywords: ["project", "projects", "portfolio projects", "built", "systems"],
-    response: "Shreya has built 3 flagship end-to-end systems:<br/>1. 🌾 <strong>KisanBandhu:</strong> RAG Agricultural Advisory (<a href='https://kisan-bandhu-4wlq.onrender.com/' target='_blank'>Live Demo</a>)<br/>2. 🏥 <strong>CityCare:</strong> Hospital Management with Gemini RAG (<a href='https://citycare-frontend.onrender.com/login' target='_blank'>Live Demo</a>)<br/>3. 📦 <strong>Multi-Warehouse System:</strong> Fulfillment & Logistics (<a href='https://warehouse-frontend-v2cu.onrender.com/login' target='_blank'>Live Demo</a>)"
+    response: "Shreya has built 3 flagship end-to-end systems:<br/>1. 🌾 <strong>KisanBandhu:</strong> RAG Agricultural Advisory (<a href='https://kisan-bandhu-4wlq.onrender.com/' target='_blank'>Live Demo</a>)<br/>2. 🏥 <strong>CityCare:</strong> Hospital Management with Gemini RAG (<a href='https://citycare-frontend.onrender.com/login' target='_blank'>Live Demo</a>)<br/>3. 📦 <strong>Multi-Warehouse System:</strong> Fulfillment & Logistics (<a href='https://warehouse-frontend-v2cu.onrender.com' target='_blank'>Live Demo</a>)"
   },
   {
     keywords: ["kisanbandhu", "kisan bandhu", "kisan", "agriculture", "farmer", "rag agricultural", "contract farming"],
@@ -382,7 +382,7 @@ const SHREYA_KNOWLEDGE_BASE = [
   },
   {
     keywords: ["warehouse", "inventory", "logistics", "fulfillment", "shipping"],
-    response: "📦 <strong>Multi-Warehouse Management System</strong> is a cloud logistics platform built with React, FastAPI, PostgreSQL, Supabase, and JWT authentication.<br/>👉 <a href='https://warehouse-frontend-v2cu.onrender.com/login' target='_blank'>Live Demo</a>"
+    response: "📦 <strong>Multi-Warehouse Management System</strong> is a cloud logistics platform built with React, FastAPI, PostgreSQL, Supabase, and JWT authentication.<br/>👉 <a href='https://warehouse-frontend-v2cu.onrender.com' target='_blank'>Live Demo</a>"
   },
   {
     keywords: ["research", "paper", "publication", "publications", "inspiro", "pose", "blockchain", "scopus", "indjcst"],
@@ -410,6 +410,9 @@ const OUT_OF_SCOPE_RESPONSE = "I am configured as <strong>Shreya Ghodmare's Exec
 
 let cachedApiKey = null;
 
+// Conversation history for multi-turn context
+const chatHistory = [];
+
 async function fetchApiKey() {
   if (cachedApiKey) return cachedApiKey;
   try {
@@ -431,47 +434,65 @@ async function callGeminiDirectly(userQuery) {
   const apiKey = await fetchApiKey();
   if (!apiKey) return null;
 
-  const systemPrompt = `You are Shreya Ghodmare's Executive AI Assistant. Speak with high confidence, authority, and professionalism on behalf of Shreya Ghodmare.
+  const systemPrompt = `You are Shreya Ghodmare's Executive AI Portfolio Assistant. You speak with confidence, clarity, and professionalism.
 
-CONFIDENT DOMAIN MATCHING & DIRECT ANSWERING RULES:
-1. ALWAYS ANSWER CONFIDENTLY AND DIRECTLY FIRST:
-   - If the user asks whether Shreya knows a skill, has a certificate, or has experience in a domain that matches her resume (e.g., Python, AI/ML, Machine Learning, Deep Learning, Computer Vision, RAG, Web Development, FastAPI, React, SQL, FDE, Brain Tumor Classification, etc.), CONFIDENTLY state: "Yes, Shreya is highly proficient in [Domain]..." or "Yes, Shreya officially holds [Certificate]..." or "Yes, Shreya has strong hands-on expertise in [Skill]..."
-   - Immediately follow up with 1-2 concise, impressive sentences detailing her real-world projects, internship, or research publications in that domain.
-2. NO GENERIC LISTINGS:
-   - NEVER output a passive bulleted list or a generic dump of unrelated certificates or skills when a specific domain or question is asked.
-   - Only list items if the user explicitly asks: "List all certificates" or "List all projects".
-3. OUT OF SCOPE DISCLAIMER:
-   - If a topic is completely unrelated to Shreya or her resume/qualifications, state with executive politeness: "I am configured as Shreya Ghodmare's Executive AI Assistant and can only provide details regarding Shreya's professional qualifications, technical skills, engineering projects, research, and credentials."
+ANSWERING RULES:
+1. ANSWER DIRECTLY AND CONFIDENTLY:
+   - When asked about a skill, tool, certificate, or domain that matches Shreya's resume, lead with "Yes, Shreya is highly proficient in [Domain]" or "Yes, Shreya officially holds [Certificate]" — then add 1-2 impressive detail sentences from her real work.
+   - For specific project questions, give the tech stack, impact, and the live demo link.
+   - For vague or broad questions, give a sharp, structured overview — not a wall of text.
+2. FORMAT YOUR RESPONSES BEAUTIFULLY:
+   - Use **bold** for names, tools, and key facts.
+   - Use bullet points or numbered lists when listing multiple items.
+   - Keep responses concise — 3 to 6 sentences or a tight list. No padding.
+   - Always include live demo links when mentioning a project.
+3. OUT OF SCOPE:
+   - If asked something completely unrelated to Shreya's profile, respond: "I am configured as Shreya Ghodmare's Executive AI Assistant and can only answer questions about her qualifications, projects, research, and professional background."
+4. CONTACT DETAILS (always share when asked):
+   - Email: ghodmareshreya@gmail.com
+   - Phone: +91 9545853876
+   - LinkedIn: https://www.linkedin.com/in/shreya-ghodmare-216417308/
+   - GitHub: https://github.com/Shreya10110
 
-RESUME & QUALIFICATION MATRIX:
-- Full Name: Shreya Ghodmare
-- Education: B.Tech in Information Technology, St. Vincent Pallotti College of Engineering & Technology, Nagpur (Graduation: June 2027, CGPA: 8.07).
-- Core Domains & Skills:
-  * Artificial Intelligence (AI), Machine Learning (ML), Deep Learning, Computer Vision (CV), Explainable AI (Grad-CAM), Generative AI (GenAI), RAG (Retrieval-Augmented Generation), LangChain, FAISS vector store, FLAN-T5 LLM, Gemini API, MiniLM embeddings.
-  * Backend & Web Engineering: Python, SQL, FastAPI, REST APIs, JWT Authentication, React.js, HTML/CSS, PostgreSQL, MongoDB, Supabase.
-  * Libraries & Data Science Tools: TensorFlow, Keras, OpenCV, NumPy, Pandas, Scikit-learn, Git, PyPDF.
-- Certifications & Credentials:
-  * Official FDE BOOTCAMP Certificate
-  * Python Diploma Certificate
-  * Winner Certificates for 5x National Hackathons, Idea Pitching, and Conferences.
-- Internship Experience: ML Engineer Intern at Leading India Pvt. Ltd. (Noida) — Built attention-weighted ensemble CNN (MobileNetV2, EfficientNetB0, Custom CNN) for brain tumor MRI classification with 97–98% validation accuracy and Grad-CAM heatmaps.
-- Flagship Projects:
-  1. KisanBandhu: RAG Agricultural Advisory Platform (LangChain, FAISS, FLAN-T5 LLM, PyPDF, Contract Farming).
-  2. CityCare: AI Hospital Management System with Gemini RAG, digital prescriptions, Cloudinary storage, role-based access.
-  3. Multi-Warehouse Management System: Cloud logistics & fulfillment with shift control, manager queues, automated shipping labels (React, FastAPI, PostgreSQL).
-- Published Research Papers (3 Publications):
-  1. AI Pose Estimation for Exercise Error Detection (ARET Conference, Scopus-indexed).
-  2. INSPIRO: AI Institution Auditor (INDJCST).
-  3. Blockchain Platform for Transparent Contract Farming (INDJCST).
-- Achievements & Leadership: 5x National Hackathon Winner/Runner-Up (1st Runner-Up at NIT Rising India Hackathon among 220 teams, 1st Prize at SB Jain Ideathon), Joint Secretary of CSI Student Chapter.`;
+SHREYA'S FULL PROFILE:
+- **Name:** Shreya Ghodmare
+- **Degree:** B.Tech in Information Technology — St. Vincent Pallotti College of Engineering & Technology, Nagpur (2023–2027, CGPA: 8.07)
+- **Core Skills:**
+  - AI/ML: Machine Learning, Deep Learning, Computer Vision, Explainable AI (Grad-CAM), TensorFlow, Keras, Scikit-learn, OpenCV
+  - Generative AI & RAG: LangChain, FAISS, FLAN-T5 LLM, Gemini API, MiniLM embeddings, PyPDF
+  - Backend: Python, FastAPI, REST APIs, JWT Authentication, SQL
+  - Frontend & DB: React.js, HTML/CSS, PostgreSQL, MongoDB, Supabase
+  - Tools: Git, NumPy, Pandas
+- **Certifications:**
+  - FDE BOOTCAMP Certificate
+  - Python Diploma Certificate
+  - 5× National Hackathon Winner/Runner-Up certificates
+- **Internship:** ML Engineer Intern at Leading India Pvt. Ltd. (Noida) — Jan to Apr 2026. Built an attention-weighted ensemble CNN (MobileNetV2 + EfficientNetB0 + Custom CNN) for brain tumor MRI classification achieving 97–98% validation accuracy with Grad-CAM heatmaps for Explainable AI.
+- **Flagship Projects:**
+  1. **KisanBandhu** — RAG Agricultural Advisory Platform using LangChain, FAISS, FLAN-T5 LLM, PyPDF. Live: https://kisan-bandhu-4wlq.onrender.com/
+  2. **CityCare** — AI-powered Hospital Management System with Gemini RAG, role-based access, appointment scheduling, digital prescriptions, Cloudinary storage. Live: https://citycare-frontend.onrender.com/login
+  3. **Multi-Warehouse Management System** — Cloud logistics platform with shift control centre, multi-role access, manager approval queues, automated shipping labels. Built with React, FastAPI, PostgreSQL, Supabase, JWT. Live: https://warehouse-frontend-v2cu.onrender.com
+- **Research Publications (3):**
+  1. *AI Pose Estimation for Exercise Error Detection in Telerehabilitation* — ARET Conference (Scopus-indexed)
+  2. *INSPIRO: AI-Powered Institution Auditor* — INDJCST
+  3. *Blockchain Platform for Transparent Contract Farming* — INDJCST
+- **Achievements:** 5× National-Level Winner/Runner-Up — 1st Runner-Up at NIT Rising India Hackathon (220 teams), 1st Prize at SB Jain Ideathon, and 3 more national-level wins.
+- **Leadership:** Joint Secretary — Computer Society of India (CSI) Student Chapter | Registration Head — CII 2025 | Promotion Lead — TECHNEX 2025`;
 
-  const models = ['gemini-3.6-flash', 'gemini-3.5-flash'];
+  // Build contents array with conversation history for multi-turn context
+  const contents = [
+    ...chatHistory,
+    { role: 'user', parts: [{ text: userQuery }] }
+  ];
+
+  // Correct, currently live Gemini model names (in priority order)
+  const models = ['gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-pro'];
   for (const model of models) {
     try {
       const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
       const payload = {
         systemInstruction: { parts: [{ text: systemPrompt }] },
-        contents: [{ parts: [{ text: userQuery }] }]
+        contents
       };
       const res = await fetch(url, {
         method: 'POST',
@@ -481,7 +502,14 @@ RESUME & QUALIFICATION MATRIX:
       if (res.ok) {
         const data = await res.json();
         const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (text) return text;
+        if (text) {
+          // Append this turn to history for future context
+          chatHistory.push({ role: 'user', parts: [{ text: userQuery }] });
+          chatHistory.push({ role: 'model', parts: [{ text }] });
+          // Keep history to last 10 turns to avoid token bloat
+          if (chatHistory.length > 20) chatHistory.splice(0, 2);
+          return text;
+        }
       }
     } catch (e) {
       console.warn(`Direct fetch to ${model} failed:`, e);
@@ -523,6 +551,8 @@ function resetChatbotLog() {
       </div>
     `;
   }
+  // Clear conversation history on reset
+  chatHistory.length = 0;
 }
 
 function handleChatbotKeyDown(e) {
@@ -596,11 +626,41 @@ async function handleChatbotSend() {
   }
 }
 
-function formatGeminiResponse(text) {
-  return text
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
-    .replace(/\n/g, '<br/>');
+function formatGeminiResponse(rawText) {
+  let text = rawText;
+
+  // 1. Escape any HTML entities first (safety)
+  // (We trust Gemini output — skip escaping so links/bold render)
+
+  // 2. Bold: **text** → <strong>text</strong>
+  text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+  // 3. Italic: *text* or _text_ → <em>text</em> (skip if already inside <strong>)
+  text = text.replace(/(?<!\*)(\*)(?!\*)(.*?)(?<!\*)\1(?!\*)/g, '<em>$2</em>');
+  text = text.replace(/_(.*?)_/g, '<em>$1</em>');
+
+  // 4. Markdown links: [text](url) → <a href="url">text</a>
+  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+  // 5. Bare URLs not already inside href="..."
+  text = text.replace(/(?<!href=")https?:\/\/[^\s<"']+/g, (url) => `<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
+
+  // 6. Headings: ### → <h4>, ## → <h3>, # → <h3>
+  text = text.replace(/^### (.+)$/gm, '<h4 class="chat-heading">$1</h4>');
+  text = text.replace(/^## (.+)$/gm,  '<h3 class="chat-heading">$1</h3>');
+  text = text.replace(/^# (.+)$/gm,   '<h3 class="chat-heading">$1</h3>');
+
+  // 7. Numbered lists: lines starting with "1. ", "2. " etc.
+  text = text.replace(/^(\d+)\. (.+)$/gm, '<div class="chat-list-item"><span class="chat-list-num">$1.</span> $2</div>');
+
+  // 8. Bullet lists: lines starting with "- " or "* "
+  text = text.replace(/^[-*] (.+)$/gm, '<div class="chat-bullet-item">• $1</div>');
+
+  // 9. Remaining newlines → line breaks (but skip after block elements)
+  text = text.replace(/\n{2,}/g, '<br/><br/>');
+  text = text.replace(/\n/g, '<br/>');
+
+  return text;
 }
 
 function matchQueryToKnowledgeBase(query) {

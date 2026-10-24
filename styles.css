@@ -2195,6 +2195,52 @@ body {
   text-decoration: underline;
 }
 
+/* Markdown-rendered list and heading styles inside bot messages */
+.chat-heading {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #800020;
+  margin: 0.5rem 0 0.25rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.chat-bullet-item,
+.chat-list-item {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+  margin: 0.2rem 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.chat-list-num {
+  color: #800020;
+  font-weight: 700;
+  min-width: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.chat-bullet-item::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #800020;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+/* Override the bullet character since we use ::before */
+.chat-bullet-item {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .chatbot-suggestions {
   padding: 0.55rem 0.85rem;
   display: flex;
